@@ -4,7 +4,7 @@ import Modal from "../UI/Modal";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem/CartItem";
 import Checkout from "./Checkout";
-import axios from "axios";
+// import axios from "axios";
 
 const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);

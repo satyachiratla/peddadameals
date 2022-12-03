@@ -9,12 +9,12 @@ const AvailableMeals = () => {
   const [httpError, setHttpError] = useState();
 
   useEffect(() => {
-    const firebaseapi = "https://react-http-75e6f-default-rtdb.firebaseio.com/meals.json"
+    // const firebaseapi = "https://react-http-75e6f-default-rtdb.firebaseio.com/meals.json"
     const fetchMeals = async () => {
-      const response = await fetch(
-        firebaseapi
-      );
-      // const response = await fetch("https://peddadameals.herokuapp.com/getmeals");
+    //   const response = await fetch(
+    //     firebaseapi
+    //   );
+      const response = await fetch("https://mealsapi.vercel.app/getmeals");
 
       if (!response.ok) {
         throw new Error("Something went wrong!");

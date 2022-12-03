@@ -4,7 +4,7 @@ import Modal from "../UI/Modal";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem/CartItem";
 import Checkout from "./Checkout";
-// import axios from "axios";
+import axios from "axios";
 
 const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
@@ -30,19 +30,19 @@ const Cart = (props) => {
   };
 
   const orderSubmitHandler = (userData) => {
-    const firebaseapi = "https://react-http-75e6f-default-rtdb.firebaseio.com/orders.json"
+    // const firebaseapi = "https://react-http-75e6f-default-rtdb.firebaseio.com/orders.json"
     setIsSubmitting(true);
-    fetch(firebaseapi, {
-      method: "POST",
-      body: JSON.stringify({
-        user: userData,
-        orderedItems: ctxCart.items,
-      }),
-    });
-    // axios.post('https://peddadameals.herokuapp.com/addorder', {
-    //   user: userData,
-    //   orderedItems: ctxCart.items
-    // })
+    // fetch(firebaseapi, {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     user: userData,
+    //     orderedItems: ctxCart.items,
+    //   }),
+    // });
+    axios.post('https://mealsapi.vercel.app/addorder', {
+      user: userData,
+      orderedItems: ctxCart.items
+    })
     setIsSubmitting(false);
     setDidSubmit(true);
     ctxCart.clearCart();
